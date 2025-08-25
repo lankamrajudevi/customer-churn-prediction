@@ -6,7 +6,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
-import pickle
+
 # Step 2: Load dataset
 df = pd.read_csv("churn.csv")
 
@@ -55,8 +55,7 @@ print("Accuracy:", accuracy_score(y_test, y_pred))
 print("\nClassification Report:\n", classification_report(y_test, y_pred))
 print("\nConfusion Matrix:\n", confusion_matrix(y_test, y_pred))
 
-with open("logistic_model.pkl", "wb") as f:
-    pickle.dump(model, f)
+
 # Step 7: Random Forest Model
 rf_model = RandomForestClassifier(n_estimators=200, random_state=42)
 rf_model.fit(X_train, y_train)
@@ -67,8 +66,7 @@ print("Accuracy:", accuracy_score(y_test, y_pred_rf))
 print("\nClassification Report:\n", classification_report(y_test, y_pred_rf))
 print("\nConfusion Matrix:\n", confusion_matrix(y_test, y_pred_rf))
 
-with open("random_forest_model.pkl", "wb") as f:
-    pickle.dump(rf_model, f)
+
 
 import joblib
 
